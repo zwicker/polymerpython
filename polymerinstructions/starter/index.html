@@ -16,6 +16,7 @@
   <link rel="import" href="../components/core-toolbar/core-toolbar.html">
   <link rel="import" href="../components/paper-tabs/paper-tabs.html">
   <link rel="import" href="post-card.html">
+  <link rel="import" href="post-list.html">
 
   <style>
   html,body {
@@ -79,11 +80,7 @@
   </div>
   <div class="container" layout vertical center>
 
-    <post-card>
-      <img width="70" height="70" src="../images/avatar-05.svg">
-      <h2>Emmet Memery</h2>
-      <p>I'm composing with shadow DOM!</p>
-    </post-card>
+    <post-list show="all"></post-list>
 
   </div>
   <!-- main page content will go here -->
@@ -91,10 +88,11 @@
 </core-header-panel>
 <script>
   var tabs = document.querySelector('paper-tabs');
+  var list = document.querySelector('post-list');
 
-  tabs.addEventListener('core-select', function() {
-    console.log("Selected: " + tabs.selected);
-  });
+tabs.addEventListener('core-select', function() {
+  list.show = tabs.selected;
+});
 </script>
 </body>
 
